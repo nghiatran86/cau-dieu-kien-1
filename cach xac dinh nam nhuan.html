@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cach xac dinh nam nhuan</title>
+</head>
+<body>
+<script>
+    let year = parseInt(prompt("enter your number: " ))
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0) {
+                alert(year + " chi het cho 4 va 100 va 400");
+            } else {
+                alert(year + " chia het cho 4 va 100, kong chia het cho 400");
+            }
+        } else {
+            alert(year + " chia het cho 4 va ko chia het cho 100");
+        }
+    } else {
+        alert(year + " khong chia het cho 4");
+    }
+</script>
+</body>
+</html>

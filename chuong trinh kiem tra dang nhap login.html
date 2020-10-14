@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuong trinh kiem tra dang nhap login</title>
+</head>
+<body>
+<script>
+    var username = prompt("who's there?");
+    if (username == 'Admin') {
+        alert("welcome");
+    } else if (username == null) {
+        alert("Canceld");
+    } else {
+        alert("I don't know you!");
+    }
+
+    var pass = prompt("enter password");
+    if (pass == 'theMaster') {
+        alert("Welcome!");
+    } else if (pass == null) {
+        alert("canceld");
+    } else {
+        alert("wrong pass!!");
+    }
+
+</script>
+</body>
+</html>

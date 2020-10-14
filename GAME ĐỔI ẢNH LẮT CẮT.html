@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GAME ĐỔI ẢNH LÁT CẮT CHO RA HÌNH</title>
+    <style>
+        img {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+<table id="content">
+    <tr>
+        <td><img data-name="cat" src="image/funny-cat1_part1x1.jpg" id="img1" onclick="changesrcImg(this.id, 1)"></td>
+    </tr>
+    <tr>
+        <td><img data-name="monkey" src="image/monkey_part2x2.jpg" id="img2" onclick="changesrcImg(this.id, 2)"></td>
+    </tr>
+    <tr>
+        <td><img data-name="funny" src="image/funny-cat1_part1x3.jpg" id="img3" onclick="changesrcImg(this.id, 3)"></td>
+    </tr>
+</table>
+</body>
+</html>
+<SCRIPT>
+    function changesrcImg(idImage, number) {
+        let dataName = document.getElementById(idImage).getAttribute("data-name");
+        if (dataName === 'funny') {
+            switch (number) {
+                case 1:
+                    document.getElementById(idImage).src = 'image/monkey_part2x1.jpg';
+                    break;
+                case 2:
+                    document.getElementById(idImage).src = 'image/monkey_part2x2.jpg';
+                    break;
+                case 3:
+                    document.getElementById(idImage).src = 'image/monkey_part2x3.jpg';
+                    break;
+            }
+
+            document.getElementById(idImage).setAttribute("data-name", 'monkey');
+            checkWin()
+
+        } else if (dataName === 'monkey') {
+
+            switch (number) {
+                case 1:
+                    document.getElementById(idImage).src = 'image/panda_swap_part3x1.jpg';
+                    break;
+                case 2:
+                    document.getElementById(idImage).src = 'image/panda_swap_part3x2.jpg';
+                    break;
+                case 3:
+                    document.getElementById(idImage).src = 'image/panda_swap_part3x3.jpg';
+                    break;
+
+            }
+
+            document.getElementById(idImage).setAttribute("data-name", 'panda');
+            checkWin()
+        } else {
+            switch (number) {
+                case 1:
+                    document.getElementById(idImage).src = 'image/funny-cat1_part1x1.jpg';
+                    break;
+                case 2:
+                    document.getElementById(idImage).src = 'image/funny-cat1_part1x2.jpg';
+                    break;
+                case 3:
+                    document.getElementById(idImage).src = 'image/funny-cat1_part1x3.jpg';
+                    break;
+            }
+            document.getElementById(idImage).setAttribute("data-name", 'funny');
+            checkWin()
+        }
+
+    }
+
+    function checkWin() {
+        let dataNameImg1 = document.getElementById('img1').getAttribute("data-name");
+        let dataNameImg2 = document.getElementById('img2').getAttribute("data-name");
+        let dataNameImg3 = document.getElementById('img3').getAttribute("data-name");
+
+        if (dataNameImg1 === dataNameImg2 && dataNameImg2 === dataNameImg3) {
+            document.getElementById('content').style.border = '2px solid red';
+        } else {
+            document.getElementById('content').style.border = '2px solid white';
+        }
+    }
+
+</SCRIPT>
